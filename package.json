@@ -1,0 +1,25 @@
+{
+  "name": "confraria",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:cv": "eleventy && node lib/buildcv.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/confraria/confraria.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/confraria/confraria/issues"
+  },
+  "homepage": "https://github.com/confraria/confraria#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.10.0",
+    "puppeteer": "^2.1.0",
+    "toml": "^3.0.0"
+  }
+}

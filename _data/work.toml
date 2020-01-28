@@ -1,0 +1,87 @@
+[[work]]
+company="Cumulocity"
+companyDescription="IoT platform"
+companyNote="acquired by SoftwareAG"
+position="Front-end developer"
+startDate="2013-01-01"
+endDate="2019-11-30"
+url="https://cumulocity.com"
+summary=[
+  "First UI team member",
+  "Built UI framework based on Angular/AngularJS powering the built-in applications and a myriad of custom apps and extensions",
+  "Built APIs and tools for extension and customization, for both internal and external developers",
+  "Adapted the codebase to javascript ecosystem evolution over time",
+  "Developed tooling and microservices in node.js",
+  "Mentored junior developers",
+  "Continuous Integration in Jenkins",
+  "Hybrid mobile applications with Ionic"
+]
+
+[[work]]
+company="Smartspanner"
+companyDescription="Maintenance management SaaS"
+url="https://smartspanner.com/"
+startDate="2013-07-01"
+endDate="2014-02-28"
+position="Full-stack developer"
+summary=[
+  "Developed a complete SaaS maintenance management solution with integrated billing",
+  "Django rest framework on the backend, AngularJS for the client and Paymill for billing and subscription management"
+]
+
+[[work]]
+company="Syntactic"
+companyDescription="Software development agency"
+startDate="2010-11-01"
+endDate="2012-12-31"
+position="Front-end developer and Partner"
+summary=[
+  "Project management",
+  "Collected requirements",
+  "Designed and developed tailored made web apps",
+  "Single page applications using backbone.js and ExtJS",
+  "Offline applications using Adobe AIR"
+]
+
+[[work]]
+company="Weddar"
+companyDescription="Crowd sourced weather mobile application"
+url="https://weddar.com"
+startDate="2011-04-01"
+endDate="2012-01-30"
+position="Full-stack developer"
+summary=[
+  "Developed the website",
+  "Maintained the google app engine python backend, fixing bugs and adding features"
+]
+
+[[work]]
+company="Outbox Ativism"
+companyDescription="Digital communication agency"
+startDate="2007-02-01"
+endDate="2010-01-01"
+position="Front-end developer"
+summary=[
+  "Developed highly interactive websites using flash, ActionScript 2 and 3",
+  "Developed websites using HTML, CSS, Javascript and some backend work with PHP"
+]
+
+[[work]]
+company="Leirisic"
+companyDescription="IT company"
+startDate="1999-01-01"
+endDate="2000-07-30"
+position="Web developer"
+summary=[
+  "Designed and developed web projects using open web technologies and flash"
+]
+
+[[work]]
+company="Freelancer"
+startDate="1998"
+endDate="2007"
+position="Web developer"
+summary=[
+  "Started getting paid web work during high-school",
+  "Designed and developed web projects using Flash, HTML, CSS and Javascript"
+]

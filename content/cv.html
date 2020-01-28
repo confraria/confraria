@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Luis Confraria</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body { font-family: Roboto; }
+    .robotosans { font-family: 'Roboto Slab'; }
+    h2 .material-icons {
+      position: relative;
+      bottom: -4px;
+    }
+  </style>
+</head>
+<body class="p-2">
+  <header class="mb-4">
+    <div class="flex content-center">
+      <h1 class="text-3xl robotosans font-bold">{{ info.firstName }} {{ info.lastName }}</h1>
+      <h2 class="text-xl opacity-25 flex-1 text-right">{{ info.headline }}</h2>
+    </div>
+  </header>
+
+  <div class="flex">
+
+    <section>
+      <header class="text-xl robotosans">
+        <h2><i class="material-icons">work</i> Work experience</h2>
+      </header>
+      <ul>
+        {% for work in work.work %}
+          <li>
+            <section class="mb-3">
+
+              <h2>{{ work.company }} <span class="text-xs italic opacity-75">{{ work.companyDescription }} {% if work.url %} • {% endif %} {{ work.url }}</span> <small class="text-xs opacity-25">{{ work.companyNote }}</small></h2>
+              <span class="opacity-75">{{ work.position }} <span class="opacity-25 text-sm">{{ work.startDate }} <i class="material-icons text-sm">arrow_forward</i> {{ work.endDate}} </span></span>
+              <ul class="text-xs opacity-75 list-disc pl-5 leading-tight">
+                {% for line in work.summary %}
+                  <li class="">{{ line }}</li>
+                {% endfor %}
+              </ul>
+            </section>
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <div class="w-6/12 ml-3">
+      <p class="p-4 text-gray-800 text-xs mb-2 rounded bg-gray-100">
+        👋 Hi there, I'm Luis. <br>
+        I've been building for the web for over 20 years. For the majority of this time I've been a 'Front-end developer' but my range of skills is quite broader.
+        Although where I can deliver most value is bridging the gap between design and develop, I can move confortably along the stack.
+        Like to think the big picture but always feel the strong need to understand how the little pieces work in detail.
+        Very used to working remotely and communicating with distributed teams in multiple timezones. I'm familiar with both startup and enterprise development environments.
+      </p>
+      <section>
+        <header class="text-xl robotosans">
+          <h2><i class="material-icons">school</i> Education</h2>
+        </header>
+        <ul>
+          {% for edu in education.education %}
+            <li>
+              <section class="mb-3">
+
+                <h2 class="text-sm leading-tight">{{ edu.area }} <small class="text-xs opacity-50">{{ edu.gpa }}</small></h2>
+                <p class="text-sm italic opacity-75">{{ edu.institution }}</p>
+                <p class="opacity-25 text-sm">{{ edu.startDate }} <i class="material-icons text-sm">arrow_forward</i> {{ edu.endDate}} </p>
+                <ul class="text-sm">
+                  {% for subject in edu.subjects %}
+                    <li class="rounded text-gray-600 bg-gray-200 inline-block p-px px-1 mr-1 mb-1">{{ subject }}</li>
+                  {% endfor %}
+                </ul>
+              </section>
+            </li>
+          {% endfor %}
+        </ul>
+      </section>
+
+      <section class="mt-4">
+        <header class="text-xl robotosans">
+          <h2><i class="material-icons">perm_contact_calendar</i> Contacts</h2>
+        </header>
+        <ul class="text-sm opacity-75">
+          <li>{{ info.location }}</li>
+          <li>{{ info.email }}</li>
+          <li>{{ info.phone }}</li>
+          <li>https://confraria.me</li>
+          <li>https://www.linkedin.com/in/{{info.profile.linkedin}}/</li>
+          <li>https://twitter.com/{{info.profile.twitter}}</li>
+          <li>https://github.com/{{info.profile.github}}</li>
+        </ul>
+      </section>
+    </div>
+
+  </div>
+
+
+</body>
+</html>
