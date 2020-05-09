@@ -1,3 +1,23 @@
+firstName="Luis"
+lastName="Confraria"
+headline="Front-end developer"
+email="lconfraria@gmail.com"
+web="https://confraria.me"
+location="Portugal"
+phone=""
+intro="""
+👋 Hi there, I'm Luis. <br>
+I've been building for the web for over 20 years. For the majority of this time, I've been a 'Front-end developer' but my range of skills is quite broader.
+Although where I can deliver most value is bridging the gap between design and development, I can move comfortably along the stack.
+Like to think the big picture but always feel the strong need to understand how the little pieces work in detail.
+Very used to working remotely and communicating with distributed teams in multiple timezones. I'm familiar with both startup and enterprise development environments.
+"""
+
+[profile]
+  twitter="lconfraria"
+  github="confraria"
+  linkedin="confraria"
+
 [[work]]
 company="Cumulocity"
 companyDescription="IoT platform"
@@ -85,3 +105,21 @@ summary=[
   "Started getting paid web work during high-school",
   "Designed and developed web projects using Flash, HTML, CSS and Javascript"
 ]
+
+[[education]]
+institution="Universidade de Aveiro"
+area="New Communication Technologies"
+studyType="MSc"
+startDate=2003
+endDate=2007
+gpa="15/20"
+subjects=[ "interaction design", "digital video", "creative coding", "web development"]
+
+[[education]]
+institution="Universidade de Aveiro"
+area="Electronic and Telecommunications Engineering"
+studyType="MSc"
+startDate=2000
+endDate=2003
+gpa="Did not graduate"
+subjects=[ "math", "physics", "programming", "electronics"]

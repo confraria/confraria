@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:cv": "eleventy && node lib/buildcv.js"
+    "build:cv": "eleventy --input=cv --output=build && node scripts/cv-pdf.js && rm -r build/cv"
   },
   "repository": {
     "type": "git",
@@ -19,7 +19,7 @@
   "homepage": "https://github.com/confraria/confraria#readme",
   "devDependencies": {
     "@11ty/eleventy": "^0.10.0",
-    "puppeteer": "^2.1.0",
+    "puppeteer": "^2.1.1",
     "toml": "^3.0.0"
   }
 }
