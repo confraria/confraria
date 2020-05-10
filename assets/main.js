@@ -1,5 +1,6 @@
 const $canvas = document.getElementById("faces");
 const $header = document.getElementById("header");
+let frames = [];
 let dotsColor;
 
 main();
@@ -7,14 +8,62 @@ main();
 async function main() {
   // $header.style.height = window.innerHeight;
   random();
-  const data = await getData();
-  animate(data);
+  animate();
+  getData();
   window.addEventListener("resize", resizeCanvas, { passive: true });
 }
 
 async function getData() {
   const res = await fetch("/assets/faces");
-  return res.json();
+  const reader = res.body.getReader();
+  let xBuffer = "";
+  let yBuffer = "";
+  let frameBuffer = [];
+  const processLine = (line) => {
+    const vals = line.split(",");
+    const frame = [];
+    for (var i = 0, t = vals.length; i < t; i += 2) {
+      frame.push([parseFloat(vals[i]), parseFloat(vals[i + 1])]);
+    }
+    return frames.push(frame);
+  };
+  const decoder = new TextDecoder("utf-8");
+  const addPoint = () => {
+    frameBuffer.push([parseFloat(xBuffer), parseFloat(yBuffer)]);
+    xBuffer = "";
+    yBuffer = "";
+  };
+  const addFrame = () => {
+    if (frameBuffer.length) {
+      frames.push(frameBuffer);
+      frameBuffer = [];
+    }
+  };
+  let isX = true;
+  const processChunk = ({ done, value }) => {
+    const str = decoder.decode(value);
+    for (let char of str) {
+      switch (char) {
+        case "\n":
+          addFrame();
+          isX = !isX;
+          break;
+        case ",":
+          if (!isX) addPoint();
+          isX = !isX;
+          break;
+        default:
+          isX ? (xBuffer = xBuffer + char) : (yBuffer = yBuffer + char);
+      }
+    }
+    if (done) {
+      if (xBuffer && yBuffer) addPoint();
+      addFrame();
+    } else {
+      reader.read().then(processChunk);
+    }
+  };
+  reader.read().then(processChunk);
 }
 
 function resizeCanvas() {
@@ -29,7 +78,7 @@ function resizeCanvas() {
   }px`;
 }
 
-function animate(data) {
+function animate() {
   resizeCanvas();
   const ctx = $canvas.getContext("2d");
   let frameIx = 0;
@@ -37,7 +86,7 @@ function animate(data) {
   let direction = 1;
   const render = () => {
     const { width, height } = $canvas;
-    const frame = data[frameIx];
+    const frame = frames[frameIx] || [];
     ctx.fillStyle = dotsColor;
     ctx.clearRect(0, 0, width, height);
     const xshift = 0.08;
@@ -54,7 +103,7 @@ function animate(data) {
       ctx.arc(x, y, 1.5, 0, PI2);
       ctx.fill();
     }
-    direction = data[frameIx + direction] ? direction : -direction;
+    direction = frames[frameIx + direction] ? direction : -direction;
     frameIx = frameIx + direction;
     requestAnimationFrame(render);
   };
