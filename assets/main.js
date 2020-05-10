@@ -19,14 +19,7 @@ async function getData() {
   let xBuffer = "";
   let yBuffer = "";
   let frameBuffer = [];
-  const processLine = (line) => {
-    const vals = line.split(",");
-    const frame = [];
-    for (var i = 0, t = vals.length; i < t; i += 2) {
-      frame.push([parseFloat(vals[i]), parseFloat(vals[i + 1])]);
-    }
-    return frames.push(frame);
-  };
+  frames.push(frameBuffer);
   const decoder = new TextDecoder("utf-8");
   const addPoint = () => {
     frameBuffer.push([parseFloat(xBuffer), parseFloat(yBuffer)]);
@@ -35,8 +28,8 @@ async function getData() {
   };
   const addFrame = () => {
     if (frameBuffer.length) {
-      frames.push(frameBuffer);
       frameBuffer = [];
+      frames.push(frameBuffer);
     }
   };
   let isX = true;
@@ -58,7 +51,6 @@ async function getData() {
     }
     if (done) {
       if (xBuffer && yBuffer) addPoint();
-      addFrame();
     } else {
       reader.read().then(processChunk);
     }
