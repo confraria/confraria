@@ -19,6 +19,28 @@ Very used to working remotely and communicating with distributed teams in multip
   linkedin="confraria"
 
 [[work]]
+company="NearForm"
+companyDescription="NearForm provide enterprise software development and capability building for top development teams."
+position="Senior developer"
+startDate="2022-03-12"
+endDate=""
+url="https://www.nearform.com/"
+summary=[]
+
+[[work]]
+company="talent::digital GmbH"
+companyDescription="Learning by gaming digital transformation platform"
+position="Front-end developer"
+startDate="2020-03-01"
+endDate="2022-03-01"
+url="https://talentdigital.eu/"
+summary=[
+  "Developed the game script engine based on RxJS",
+  "Developed UI for game admin and game player using React",
+  "Wrote end to end tests using Tescafe"
+]
+
+[[work]]
 company="Cumulocity"
 companyDescription="IoT platform"
 companyNote="acquired by SoftwareAG"
